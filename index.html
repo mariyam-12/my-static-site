@@ -1,1 +1,73 @@
-<h1>Hello from my static site</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Static Site</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Page styling */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #f0f4f8, #d9e2ec);
+      color: #1b262c;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #0f4c75;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #3282b8;
+      background: #ffffffaa; /* semi-transparent white */
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    span#date {
+      font-weight: bold;
+      color: #1b262c;
+    }
+
+    /* Small animation for date */
+    p span#date {
+      transition: color 0.5s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Hello from my static site</h1>
+  <p>Deployed automatically via GitHub Actions on: <span id="date"></span></p>
+
+  <script>
+    // Display current date/time when loaded
+    const dateSpan = document.getElementById('date');
+    dateSpan.innerText = new Date().toLocaleString();
+
+    // Optional: animate color every second
+    setInterval(() => {
+      dateSpan.style.color = `hsl(${Math.floor(Math.random() * 360)}, 70%, 40%)`;
+    }, 1000);
+  </script>
+
+</body>
+</html>
+
